@@ -1,0 +1,5 @@
+build
+dist
+
+server/src/proto
+types/proto

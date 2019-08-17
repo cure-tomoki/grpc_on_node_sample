@@ -7,11 +7,15 @@ set -eu
 export PATH="$PATH:$(yarn bin)"
 
 PROTO_SRC=./proto
-PROTO_DEST=./server/src/proto # protocol buffer js location
-PROTO_D_DEST=./types/proto    # protocol buffer d.ts location
+PROTO_DEST=server/src/proto # protocol buffer js location
+PROTO_D_DEST=types/proto    # protocol buffer d.ts location
 
 mkdir -p ${PROTO_DEST}
 mkdir -p ${PROTO_D_DEST}
+
+# add directories to .eslintignore
+grep -qxF "${PROTO_DEST}" .eslintignore || echo "${PROTO_DEST}" >> .eslintignore
+grep -qxF "${PROTO_D_DEST}" .eslintignore || echo "${PROTO_D_DEST}" >> .eslintignore
 
 # statically generate protocol buffer js code with protoc compiler
 grpc_tools_node_protoc \
