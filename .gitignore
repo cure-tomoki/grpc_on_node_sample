@@ -4,6 +4,7 @@
 # project
 node_modules/
 dist/
+build/
 
 # logs
 **/*.logi

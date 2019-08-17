@@ -5,13 +5,19 @@
   "author": "tomotetra",
   "license": "MIT",
   "scripts": {
+    "protoc": "sh ./bin/protoc.sh",
     "tsc": "tsc --noEmit",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "build:client": "NODE_ENV=development webpack -r @babel/register --config webpack/webpack.client.babel.js"
+    "build:client": "NODE_ENV=development webpack -r @babel/register --config webpack/webpack.client.babel.js",
+    "build:server": "NODE_ENV=development webpack -r @babel/register --config webpack/webpack.server.babel.js",
+    "start:server": "node build/server.js"
   },
   "dependencies": {
+    "google-protobuf": "^3.9.1",
+    "grpc": "^1.22.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -29,6 +35,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
+    "grpc-tools": "^1.8.0",
+    "grpc_tools_node_protoc_ts": "^2.5.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6"

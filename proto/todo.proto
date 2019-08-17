@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service TodoService {
+  rpc PostTodo(TodoCreateRequest) returns (TodoResponse);
+}
+
+message TodoCreateRequest {
+  string text   = 1;
+  bool   status = 2;
+}
+
+message TodoResponse {
+  string text     = 1;
+  bool   status   = 2;
+  int64  datetime = 3;
+}

@@ -1,3 +1,4 @@
+import webpackNodeExternals from 'webpack-node-externals';
 import * as path from 'path';
 
 const DEV = 'development';
@@ -20,11 +21,15 @@ const baseConfig = {
         test: /\.tsx?/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        options: {
-          sourceMap: isEnv(DEV),
-        },
       },
     ],
+  },
+  node: {
+    console: true,
+    global: true,
+    process: true,
+    __filename: false,
+    __dirname: false,
   },
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
@@ -47,7 +52,15 @@ const clientConfig = base => {
 // modify base server-side code
 const serverConfig = base => {
   const config = base;
-  config.entry = './server/src/index.tsx';
+  config.target = 'node';
+  config.entry = './server/src/index.ts';
+  config.output = {
+    path: path.resolve(__dirname, '../build'),
+    filename: 'server.js',
+  };
+  config.externals = [
+    webpackNodeExternals(),
+  ];
   return config;
 };
 
