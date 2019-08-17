@@ -1,0 +1,36 @@
+{
+  "name": "grpc_on_node_sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tomotetra",
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc --noEmit",
+    "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "build:client": "NODE_ENV=development webpack -r @babel/register --config webpack/webpack.client.babel.js"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/register": "^7.5.5",
+    "@types/react": "^16.9.1",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-typescript": "^4.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.6"
+  }
+}
